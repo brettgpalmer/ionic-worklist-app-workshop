@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkService } from 'src/app/services/work.service';
+import { WorkModel } from 'src/app/shared/models/work-model';
 
 @Component({
   selector: 'app-work-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkListPage implements OnInit {
 
-  constructor() { }
+  loadedWork: WorkModel[];
+
+  constructor(
+    private workService: WorkService
+  ) { }
 
   ngOnInit() {
+    console.log('loading work list');
+    this.loadedWork = this.workService.generateWorkList();
+    console.log('Work list has been loaded');
   }
 
 }

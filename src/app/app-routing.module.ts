@@ -16,7 +16,6 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule'
   },
   { path: 'work-list', loadChildren: './pages/work-list/work-list.module#WorkListPageModule' },
-  { path: 'work-list', loadChildren: './pages/work-list/work-list.module#WorkListPageModule' },
   { path: 'work-detail-view', loadChildren: './pages/work-detail-view/work-detail-view.module#WorkDetailViewPageModule' },
   { path: 'work-detail-edit', loadChildren: './pages/work-detail-edit/work-detail-edit.module#WorkDetailEditPageModule' }
 ];
