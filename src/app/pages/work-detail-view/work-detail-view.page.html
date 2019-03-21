@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>WorkDetailView</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-img [src]="work.imageUrl" alt="avatar"></ion-img>
+  <h4>{{ work.title }}</h4>
+  <p>{{ work.description }}</p>
+  <p>{{ work.notes }}</p>
 
 </ion-content>

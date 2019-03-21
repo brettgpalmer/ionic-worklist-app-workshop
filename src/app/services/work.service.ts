@@ -11,7 +11,7 @@ export class WorkService {
 
   constructor(
   ) {
-    faker.seed(1234);
+    faker.seed(123);
     this._workList = this.generateWorkList();
   }
 
@@ -23,7 +23,7 @@ export class WorkService {
 
     for (let i = 0; i < maxList; i++) {
       genList[i] = new WorkModel(
-        ' ' + i,
+        '' + i,
         faker.name.findName(),
         faker.lorem.paragraph(),
         faker.image.avatar(),
@@ -32,4 +32,18 @@ export class WorkService {
     }
     return genList;
   }
+
+  getWorkList() {
+    return this._workList;
+  }
+
+  getWorkById(id: string): WorkModel {
+    for(const work of this._workList) {
+      if (work.id === id) {
+        return work;
+      };
+    };
+    return undefined;
+  }
+
 }

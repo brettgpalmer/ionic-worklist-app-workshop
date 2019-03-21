@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {WorkService} from '../../services/work.service';
+import {WorkModel} from '../../shared/models/work-model';
 
 @Component({
   selector: 'app-work-detail-view',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkDetailViewPage implements OnInit {
 
-  constructor() { }
+  work: WorkModel = <WorkModel>{};
+
+  constructor(private route: ActivatedRoute, private workService: WorkService) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    const workId = this.route.snapshot.paramMap.get('id');
+    this.work = this.workService.getWorkById(workId);
   }
 
 }

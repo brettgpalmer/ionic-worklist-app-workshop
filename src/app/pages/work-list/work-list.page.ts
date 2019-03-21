@@ -17,7 +17,7 @@ export class WorkListPage implements OnInit {
 
   ngOnInit() {
     console.log('loading work list');
-    this.loadedWork = this.workService.generateWorkList();
+    this.loadedWork = this.workService.getWorkList();
     console.log('Work list has been loaded');
   }
 
