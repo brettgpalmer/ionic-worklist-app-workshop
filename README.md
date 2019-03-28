@@ -23,3 +23,6 @@ Here are workshop directions to implement the final solution for the workshop:
 
 https://docs.google.com/document/d/19OK5_Ak9KzpsgFy_LwdH8PYtR6NYG59pZPe0SnZCT0M/edit#
 
+
+Added CodePush from Microsoft for live app updates!
+https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cordova
