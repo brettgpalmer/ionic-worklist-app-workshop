@@ -17,7 +17,8 @@ const routes: Routes = [
   },
   { path: 'work-list', loadChildren: './pages/work-list/work-list.module#WorkListPageModule' },
   { path: 'work-detail-view/:id', loadChildren: './pages/work-detail-view/work-detail-view.module#WorkDetailViewPageModule' },
-  { path: 'work-detail-edit', loadChildren: './pages/work-detail-edit/work-detail-edit.module#WorkDetailEditPageModule' }
+  { path: 'work-detail-edit', loadChildren: './pages/work-detail-edit/work-detail-edit.module#WorkDetailEditPageModule' },
+  { path: 'work-detail-new', loadChildren: './pages/work-detail-new/work-detail-new.module#WorkDetailNewPageModule' }
 ];
 
 @NgModule({
