@@ -5,5 +5,7 @@ export class WorkModel {
         public description: string,
         public imageUrl: string,
         public notes: string,
+        public imageList: string[],
+        public workDate: Date
     ) {}
 }

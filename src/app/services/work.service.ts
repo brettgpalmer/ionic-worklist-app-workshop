@@ -27,7 +27,9 @@ export class WorkService {
         faker.name.findName(),
         faker.lorem.paragraph(),
         faker.image.avatar(),
-        faker.lorem.paragraph()
+        faker.lorem.paragraph(),
+        null,
+        null
       );
     }
     return genList;
