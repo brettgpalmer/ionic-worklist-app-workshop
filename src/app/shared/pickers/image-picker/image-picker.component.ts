@@ -74,7 +74,7 @@ export class ImagePickerComponent implements OnInit {
     fr.onload = () => {
       const dataUrl = fr.result.toString();
       this.selectedImage = dataUrl;
-    }
+    };
     fr.readAsDataURL(pickedFile);
   }
 }
