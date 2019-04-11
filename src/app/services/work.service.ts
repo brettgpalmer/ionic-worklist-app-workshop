@@ -48,11 +48,22 @@ export class WorkService {
 */
 
   addWork(
-
+    title: string,
+    description: string,
+    imgUrl: string,
+    workDate: Date
   ) {
-    
+    this._workList.push(
+      new WorkModel(
+        '100',
+        title,
+        description,
+        imgUrl,
+        null,
+        null,
+        workDate)
+      );
   }
-
 
   getWorkList() {
     return this._workList;

@@ -48,7 +48,7 @@ export class WorkDetailNewPage implements OnInit {
 */
   constructor(
     private workService: WorkService,
-    private route: Router,
+    private router: Router,
     private loadingCtrl: LoadingController
    ) { }
 
@@ -72,17 +72,31 @@ export class WorkDetailNewPage implements OnInit {
 
 
   onCreateWorkDetail() {
-    if (!this.form.valid || !this.form.get('image').value) {
+    //if (!this.form.valid || !this.form.get('image').value) {
+    if (!this.form.valid ) {
       return;
     }
 
-    this.loadingCtrl
+    this.router.navigate(['/work-list']);
+
+    /* this.loadingCtrl
     .create({
       message: 'Creating work service..'
     })
     .then(  loadingEl => {
-      
+     loadingEl.present();
+     this.workService.addWork(
+       this.form.value.title,
+       this.form.value.description,
+       new Date(this.form.value.workDate),
+       this.form.value.image
+     );
     })
+  ).subscribe(() => { {
+    this.loadingCtrl.dismiss();
+    this.form.reset();
+    this.router.navigate(['/work-list'])
+  } */
 
     console.log(this.form);
   }
