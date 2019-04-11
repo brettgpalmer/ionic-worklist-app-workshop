@@ -9,8 +9,8 @@ import { Platform } from '@ionic/angular';
 })
 export class ImagePickerComponent implements OnInit {
 
-  @ViewChild('filePicker') filePickerRef: ElementRef<HTMLInputElement>;
-  @Output() imagePick = new EventEmitter<string>();
+  @ViewChild('filePicker') filePicker: ElementRef<HTMLInputElement>;
+  @Output() imagePick = new EventEmitter<string | File>();
   @Input() showPreview = false;
   selectedImage: String;
   usePicker = false;
@@ -29,19 +29,20 @@ export class ImagePickerComponent implements OnInit {
 
     if (
       (this.platform.is('mobile') && !this.platform.is('hybrid')) ||
-      this.platform.is('desktop')
+        this.platform.is('desktop')
     ) {
       this.usePicker = true;
     }
   }
 
-  /* 
+  /*
     method to selectd an image but also provide method if camera is not available
   */
   onPickImage() {
 
     if (!Capacitor.isPluginAvailable('Camera') || this.usePicker ) {
-      this.filePickerRef.nativeElement.click();
+    // if (!Capacitor.isPluginAvailable('Camera') ) {
+      this.filePicker.nativeElement.click();
       return;
     }
     Plugins.Camera.getPhoto({
@@ -57,23 +58,26 @@ export class ImagePickerComponent implements OnInit {
     }).catch(error => {
       console.log(error);
       if (this.usePicker) {
-        this.filePickerRef.nativeElement.click();
+        this.filePicker.nativeElement.click();
       }
       return false;
     });
   }
 
   onFileChosen(event: Event) {
-    console.log('here is the event: ' + event);
+    // console.log('here is the event: ' + event);
     const pickedFile = (event.target as HTMLInputElement).files[0];
     if (!pickedFile) {
       return;
     }
 
     const fr = new FileReader();
+    // Async task so need to anonymous function to get results once file 
+    // is done reading the file URL
     fr.onload = () => {
       const dataUrl = fr.result.toString();
       this.selectedImage = dataUrl;
+      this.imagePick.emit(pickedFile);
     };
     fr.readAsDataURL(pickedFile);
   }
