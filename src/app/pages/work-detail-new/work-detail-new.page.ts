@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { WorkService } from 'src/app/services/work.service';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 function base64toBlob(base64Data, contentType) {
   contentType = contentType || '';
@@ -43,7 +46,11 @@ export class WorkDetailNewPage implements OnInit {
         public imageList: string[],
     ) {
 */
-  constructor() { }
+  constructor(
+    private workService: WorkService,
+    private route: Router,
+    private loadingCtrl: LoadingController
+   ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -65,9 +72,17 @@ export class WorkDetailNewPage implements OnInit {
 
 
   onCreateWorkDetail() {
-    if (!this.form.valid) {
+    if (!this.form.valid || !this.form.get('image').value) {
       return;
     }
+
+    this.loadingCtrl
+    .create({
+      message: 'Creating work service..'
+    })
+    .then(  loadingEl => {
+      
+    })
 
     console.log(this.form);
   }

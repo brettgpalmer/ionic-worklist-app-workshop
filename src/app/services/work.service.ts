@@ -35,6 +35,25 @@ export class WorkService {
     return genList;
   }
 
+
+/*
+    constructor(
+        public id: string,
+        public title: string,
+        public description: string,
+        public imageUrl: string,
+        public notes: string,
+        public imageList: string[],
+    ) {
+*/
+
+  addWork(
+
+  ) {
+    
+  }
+
+
   getWorkList() {
     return this._workList;
   }
