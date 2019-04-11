@@ -40,8 +40,8 @@ export class ImagePickerComponent implements OnInit {
   */
   onPickImage() {
 
-    if (!Capacitor.isPluginAvailable('Camera') || this.usePicker ) {
-    // if (!Capacitor.isPluginAvailable('Camera') ) {
+    // Use when PWA not installed if (!Capacitor.isPluginAvailable('Camera') || this.usePicker ) {
+    if (!Capacitor.isPluginAvailable('Camera') ) {
       this.filePicker.nativeElement.click();
       return;
     }
