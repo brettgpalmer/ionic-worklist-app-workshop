@@ -53,7 +53,7 @@ export class WorkDetailNewPage implements OnInit {
       }),
       description: new FormControl(null, {
         updateOn: 'blur',
-        validators: [Validators.required, Validators.minLength(5), Validators.maxLength(180)]
+        validators: [Validators.required, Validators.minLength(1), Validators.maxLength(180)]
       }),
       workDate: new FormControl(null, {
         updateOn: 'blur',
