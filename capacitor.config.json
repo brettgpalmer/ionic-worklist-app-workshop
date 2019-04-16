@@ -1,0 +1,6 @@
+{
+  "appId": "com.psc.worklist",
+  "appName": "Work List",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

@@ -27,10 +27,42 @@ export class WorkService {
         faker.name.findName(),
         faker.lorem.paragraph(),
         faker.image.avatar(),
-        faker.lorem.paragraph()
+        faker.lorem.paragraph(),
+        null,
+        null
       );
     }
     return genList;
+  }
+
+
+/*
+    constructor(
+        public id: string,
+        public title: string,
+        public description: string,
+        public imageUrl: string,
+        public notes: string,
+        public imageList: string[],
+    ) {
+*/
+
+  addWork(
+    title: string,
+    description: string,
+    imgUrl: string,
+    workDate: Date
+  ) {
+    this._workList.push(
+      new WorkModel(
+        '100',
+        title,
+        description,
+        imgUrl,
+        null,
+        null,
+        workDate)
+      );
   }
 
   getWorkList() {
