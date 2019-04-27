@@ -14,22 +14,23 @@ export class WorkListPage implements OnInit {
   searchText = '';
   loadedWork: WorkModel[];
   filteredWork: WorkModel[];
+  searching = false;
 
   constructor(
     private workService: WorkService
   ) { }
 
   ngOnInit() {
-    console.log('loading work list');
     this.loadedWork = this.workService.getWorkList();
     this.filteredWork = [...this.loadedWork];
-    console.log('Work list has been loaded');
   }
 
   filterText() {
+    this.searching = true;
     this.filteredWork = this.searchText ?
         this.loadedWork.filter(work => work.title.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1) :
         [...this.loadedWork];
+    this.searching = false;
   }
 
 }
